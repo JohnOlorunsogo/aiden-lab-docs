@@ -1,27 +1,27 @@
 // @ts-check
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'AIDEN Labs',
-  tagline: 'ENSP Logger System - AI-Powered Network Error Detection',
-  favicon: 'img/favicon.svg',
+  title: "AIDEN Labs",
+  tagline: "ENSP Logger System - AI-Powered Network Error Detection",
+  favicon: "img/favicon.svg",
 
   future: {
     v4: true,
   },
 
-  url: 'https://aiden-lab-docs.example.com',
-  baseUrl: '/',
+  url: "https://aiden-lab-docs.example.com",
+  baseUrl: "/",
 
-  organizationName: 'aiden-lab',
-  projectName: 'aiden-lab-docs',
+  organizationName: "aiden-lab",
+  projectName: "aiden-lab-docs",
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: "throw",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   markdown: {
@@ -30,15 +30,15 @@ const config = {
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: "./sidebars.js",
           editUrl: undefined,
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -47,40 +47,65 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/social-card.svg',
+      image: "img/social-card.svg",
       colorMode: {
-        defaultMode: 'dark',
+        defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'AIDEN Labs',
+        title: "AIDEN Labs",
         logo: {
-          alt: 'AIDEN Labs Logo',
-          src: 'img/logo.svg',
+          alt: "AIDEN Labs Logo",
+          src: "img/logo.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Documentation',
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "Documentation",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Documentation',
+            title: "Documentation",
             items: [
               {
-                label: 'Getting Started',
-                to: '/docs/intro',
+                label: "Overview",
+                to: "/docs/intro",
               },
               {
-                label: 'Architecture',
-                to: '/docs/architecture',
+                label: "Capturing Traffic",
+                to: "/docs/capturing-traffic",
+              },
+              {
+                label: "Error Detection",
+                to: "/docs/error-detection",
+              },
+              {
+                label: "AI Analysis",
+                to: "/docs/ai-analysis",
+              },
+            ],
+          },
+          {
+            title: "Reference",
+            items: [
+              {
+                label: "System Architecture",
+                to: "/docs/architecture",
+              },
+              {
+                label: "Tools & Dependencies",
+                to: "/docs/tools-and-dependencies",
+              },
+              {
+                label: "Startup Guide",
+                to: "/docs/startup",
               },
             ],
           },
@@ -90,15 +115,15 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['bash', 'json', 'yaml'],
+        additionalLanguages: ["bash", "json", "yaml"],
       },
-      announcementBar: {
-        id: 'aiden_brand',
-        content: 'AIDEN Labs - AI-Powered Network Error Detection',
-        backgroundColor: 'rgba(36, 171, 148, 0.1)',
-        textColor: '#24ab94',
-        isCloseable: false,
-      },
+      // announcementBar: {
+      //   id: 'aiden_brand',
+      //   content: 'AIDEN Labs - AI-Powered Network Error Detection',
+      //   backgroundColor: 'rgba(36, 171, 148, 0.1)',
+      //   textColor: '#24ab94',
+      //   isCloseable: false,
+      // },
     }),
 };
 
