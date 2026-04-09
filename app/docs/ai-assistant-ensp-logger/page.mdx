@@ -1,0 +1,38 @@
+# AI Assistant - ENSP Logger System
+
+## Core features
+
+1. Real-time CLI log ingestion from lab sessions.
+2. Pattern-based detection of network misconfiguration.
+3. MindSpore Lite inference for probable root-cause scoring.
+4. Actionable remediation hints for students and instructors.
+5. Alert stream to dashboard and incident timeline.
+6. Continuous feedback loop to improve troubleshooting quality.
+
+## Technical depth
+
+### MindSpore Lite model role
+
+- Runs compact inference close to the lab workload.
+- Scores each log event against known error signatures.
+- Produces ranked candidates with confidence indicators.
+
+### CLI analysis pipeline
+
+1. Collect raw CLI output and service logs.
+2. Normalize command tokens and interface identifiers.
+3. Match known patterns and run model inference.
+4. Generate hint set with priority and probable fixes.
+5. Publish to Flask/noVNC interface and logs dashboard.
+
+### Nigerian-specific hint examples
+
+- **OSPF area mismatch:** router adjacency fails due to different area IDs.
+- **VLAN trunk mismatch:** allowed VLAN list inconsistent between access/distribution switches.
+- **MTN-style access profile errors:** authentication or uplink profile not aligned with expected policy template.
+
+### Self-hosted LLM integration
+
+- Use a private LLM endpoint for natural-language explanation of detected faults.
+- Keep raw operational data local for compliance.
+- Feed model output as explanatory layer, not as sole decision engine.

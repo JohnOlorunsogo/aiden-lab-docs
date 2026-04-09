@@ -1,0 +1,36 @@
+# Installation & Quick Start
+
+## Prerequisites
+
+- Linux host with root privileges.
+- `dnf` package manager available.
+- Reliable internet connectivity for package/image pulls.
+- Firewall/admin access for Kubernetes and NodePort traffic.
+
+## On-prem quick start
+
+```bash
+git clone https://github.com/victor-akande/aiden-lab-setup-scripts.git
+cd aiden-lab-setup-scripts
+chmod +x *.sh
+sudo bash 0-init.sh
+sudo bash 1-kubevirt-setup.sh
+bash 2-deploy-vms.sh
+```
+
+Prompts during setup include username/password, Kubernetes version, pod CIDR, and API network interface.
+
+## Cloud quick start (Huawei Cloud style)
+
+1. Provision Kubernetes-capable compute and networking.
+2. Clone setup repository on your management host.
+3. Run `0-init.sh` and `1-kubevirt-setup.sh` with environment-specific values.
+4. Run `2-deploy-vms.sh` and expose NodePort access.
+5. Confirm VM readiness and share RDP endpoints with students.
+
+## Validation checklist
+
+- `kubectl get nodes` returns `Ready`.
+- `kubectl get pods -A` shows KubeVirt and CNI pods healthy.
+- RDP/remote endpoints for each VM are reachable.
+- AI logger receives and processes CLI logs.

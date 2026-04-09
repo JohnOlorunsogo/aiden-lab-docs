@@ -4,7 +4,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "AIDEN Labs",
-  tagline: "ENSP Logger System - AI-Powered Network Error Detection",
+  tagline: "AI-Driven Elastic Network Laboratory",
   favicon: "img/favicon.svg",
 
   future: {

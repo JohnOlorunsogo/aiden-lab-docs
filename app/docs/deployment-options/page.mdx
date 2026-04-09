@@ -1,0 +1,58 @@
+# Deployment Options
+
+## On-Prem deployment (single-node openEuler)
+
+Best for campuses that need predictable monthly cost, offline tolerance, and local control.
+
+### Recommended hardware baseline
+
+- CPU: 16+ vCPU
+- RAM: 64 GB minimum (128 GB preferred for larger classes)
+- Storage: 1 TB NVMe SSD
+- Network: stable LAN with admin access to firewall and NodePort ranges
+- Power resilience: UPS + automatic restart policies
+
+### Core execution flow
+
+```bash
+git clone https://github.com/victor-akande/aiden-lab-setup-scripts.git
+cd aiden-lab-setup-scripts
+chmod +x *.sh
+sudo bash 0-init.sh
+sudo bash 1-kubevirt-setup.sh
+bash 2-deploy-vms.sh
+```
+
+### Resilience notes
+
+- Use a UPS and configure host auto-reboot after outage.
+- Keep regular snapshots of VM images and Kubernetes manifests.
+- Validate `kubectl get nodes` and `kubectl get pods -A` after recovery.
+
+## Cloud deployment (Huawei Cloud)
+
+Best for elastic class demand and multi-campus accessibility.
+
+### Typical cloud pattern
+
+- Provision Kubernetes worker/control capacity in Huawei Cloud.
+- Install KubeVirt and expose lab VM access via NodePort.
+- Autoscale worker nodes during high-demand practical sessions.
+- Use cloud monitoring for proactive alerts and cost tracking.
+
+### Cost and elasticity guidance
+
+- Start with small baseline nodes for steady-state usage.
+- Scale up for lab windows, then scale down after sessions.
+- Use monthly budget alerts and per-course quota labels.
+
+## Comparison for Nigerian universities
+
+| Criteria | On-Prem (openEuler server) | Cloud (Huawei Cloud) |
+| --- | --- | --- |
+| Scalability | Moderate, bound by local hardware | High, elastic by design |
+| Upfront cost | Higher CAPEX | Lower CAPEX |
+| Ongoing cost | Lower recurring if power/internet stable | Variable OPEX based on usage |
+| Internet dependency | Lower for internal labs | Higher |
+| Operational complexity | Medium (local ops skills needed) | Medium/High (cloud + K8s skills) |
+| Suitability | Strong for fixed campus labs | Strong for distributed cohorts |

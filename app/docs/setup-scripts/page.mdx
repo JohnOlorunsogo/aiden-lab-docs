@@ -1,0 +1,81 @@
+# AIDEN Lab Setup Scripts
+
+This repository includes shell scripts that automate installation, configuration, VM deployment, and teardown for a single-node Kubernetes environment with Calico and KubeVirt.
+
+## Files at a glance
+
+| File | Purpose |
+| --- | --- |
+| `0-init.sh` | Initial host and Kubernetes setup with Calico networking |
+| `1-kubevirt-setup.sh` | Install KubeVirt operator, CRDs, and `virtctl` |
+| `2-deploy-vms.sh` | Create VMs and NodePort services for RDP access |
+| `3-teardown.sh` | Clean up and restore the machine after use |
+
+## Important notes before you begin
+
+- Run on Linux with root privileges.
+- Scripts assume `dnf` package management.
+- Scripts modify networking, firewall, and system configuration.
+- Reboot after teardown is strongly recommended.
+
+## Usage guide
+
+### 0) Clone and prepare
+
+```bash
+git clone https://github.com/victor-akande/aiden-lab-setup-scripts.git
+cd aiden-lab-setup-scripts
+chmod +x *.sh
+```
+
+### 1) Base host and cluster setup
+
+```bash
+sudo bash 0-init.sh
+```
+
+You are prompted for:
+
+- username and password
+- Kubernetes version
+- Pod network range
+- host network interface for API server
+
+This script configures system settings, installs containerd/Kubernetes components, initializes a single-node cluster, and installs Calico CNI.
+
+### 2) KubeVirt and image tooling
+
+```bash
+sudo bash 1-kubevirt-setup.sh
+```
+
+This script detects latest KubeVirt release, installs operator + CRDs, installs `virtctl`, and pulls the AIDEN Lab image into containerd.
+
+### 3) Deploy VMs
+
+```bash
+bash 2-deploy-vms.sh
+```
+
+You are prompted for VM count, memory, CPU cores, and VM name prefix. On success, RDP endpoint addresses are printed.
+
+### 4) Teardown and restore
+
+```bash
+sudo bash 3-teardown.sh
+```
+
+Attempts cluster reset, package/config removal, network cleanup, and restoration of swap/SELinux/firewall settings. Full restoration is not guaranteed in every environment.
+
+## Troubleshooting
+
+- **Package install failure in `0-init.sh`:** verify repo reachability and internet connectivity.
+- **Image pull failure in `1-kubevirt-setup.sh`:** verify containerd is running and image reference is correct.
+- **`kubectl` cannot connect:** check control plane health and confirm `KUBECONFIG=/etc/kubernetes/admin.conf`.
+
+## Tips for success
+
+- Run scripts in order: `0-init.sh` -> `1-kubevirt-setup.sh` -> `2-deploy-vms.sh`.
+- Select the interface with the correct local IP if unsure.
+- Monitor script output closely and resolve errors before moving forward.
+- Use `3-teardown.sh` before re-running from scratch on unstable environments.

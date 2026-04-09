@@ -3,10 +3,15 @@
 
 # Production
 /build
+/out
+/dist
 
 # Generated files
 .docusaurus
 .cache-loader
+.next/
+.turbo/
+coverage/
 
 # Misc
 .DS_Store
@@ -14,6 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.vercel/
 
 npm-debug.log*
 yarn-debug.log*

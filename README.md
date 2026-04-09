@@ -1,41 +1,31 @@
-# Website
+# AIDEN Lab Docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This documentation site is built with **Next.js + Nextra** and managed with **Bun**.
 
-## Installation
-
-```bash
-yarn
-```
-
-## Local Development
+## Install dependencies
 
 ```bash
-yarn start
+bun install
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-## Build
+## Run locally
 
 ```bash
-yarn build
+bun run dev
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-## Deployment
-
-Using SSH:
+## Build for production
 
 ```bash
-USE_SSH=true yarn deploy
+bun run build
 ```
 
-Not using SSH:
+## Serve production build
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+bun run start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Deploy
+
+Deploy on Vercel as a Next.js project. The included `vercel.json` is already configured for Next.js.
