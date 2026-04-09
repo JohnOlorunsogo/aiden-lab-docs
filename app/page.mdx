@@ -1,35 +1,89 @@
+export const metadata = {
+  title: "AIDEN Lab Docs",
+};
+
+---
+title: AIDEN Lab Docs
+description: Build, deploy, and scale AI-assisted networking labs with AIDEN Lab documentation.
+---
+
 <section className="aiden-home">
   <div className="aiden-hero">
     <h1>Build Better Networks. Guided by AI.</h1>
     <p>
-      AIDEN Lab is an AI-driven elastic network laboratory for ICT training teams,
-      university labs, and instructors who need practical networking practice without
-      hardware bottlenecks.
+      AIDEN Lab is an AI-driven elastic networking lab for ICT academies, universities,
+      and trainers who need hands-on eNSP practice without hardware bottlenecks.
     </p>
-    <span className="academy-badge">Ready for Huawei ICT Academy</span>
-    <div className="hero-card">
-      <strong>Project mission:</strong> deliver resilient, scalable labs where learners can deploy topologies,
-      troubleshoot failures, and understand AI-assisted operations in realistic environments.
+    <div className="aiden-hero-meta">
+      <span className="academy-badge">Ready for Huawei ICT Academy</span>
+      <span className="academy-badge academy-badge--outline">Cloud and On-Prem Tracks</span>
+    </div>
+    <div className="hero-card hero-card--mission">
+      <strong>Mission:</strong> make practical network training scalable, reliable, and measurable by combining
+      virtual labs with AI-assisted troubleshooting workflows.
+    </div>
+    <div className="hero-actions">
+      <a href="/docs/installation-quick-start" className="hero-btn hero-btn--primary">
+        Launch Quick Start
+      </a>
+      <a href="/docs/architecture" className="hero-btn hero-btn--ghost">
+        Explore Architecture
+      </a>
     </div>
   </div>
 
   <div className="aiden-grid">
     <article className="aiden-panel">
-      <h3>No Server? No Problem.</h3>
+      <h3>No Server? No Problem</h3>
       <p>
-        Access high-performance eNSP environments directly from your browser with guided simulation.
+        Access high-performance eNSP environments through browser-delivered sessions with guided labs.
       </p>
     </article>
     <article className="aiden-panel aiden-panel--teal">
       <h3>Elastic By Design</h3>
       <p>
-        Start on a single node and scale to cloud-based cohorts with one consistent operational model.
+        Start with one node and scale to full cohorts while keeping one consistent operational model.
+      </p>
+    </article>
+    <article className="aiden-panel">
+      <h3>AI-Assisted Fault Isolation</h3>
+      <p>
+        Analyze logs, detect anomalies, and guide learners toward root-cause analysis using the AI logger flow.
       </p>
     </article>
   </div>
 </section>
 
 <div className="aiden-divider" />
+
+## Why teams use AIDEN Lab
+
+<div className="aiden-doc-sections">
+  <article className="aiden-doc-card">
+    <h3>Instructor-first workflows</h3>
+    <p className="aiden-doc-card__desc">
+      Provision labs quickly, monitor learner progress, and run repeatable training cycles for each cohort.
+    </p>
+  </article>
+  <article className="aiden-doc-card">
+    <h3>Hybrid deployment support</h3>
+    <p className="aiden-doc-card__desc">
+      Run fully on-prem, fully in cloud, or with hybrid fallback based on your infrastructure constraints.
+    </p>
+  </article>
+  <article className="aiden-doc-card">
+    <h3>Competition-ready scenarios</h3>
+    <p className="aiden-doc-card__desc">
+      Build realistic network cases aligned with Huawei ICT training and competition style environments.
+    </p>
+  </article>
+  <article className="aiden-doc-card">
+    <h3>Lower operational overhead</h3>
+    <p className="aiden-doc-card__desc">
+      Reduce hardware pressure while maintaining practical depth with virtualized and AI-observable labs.
+    </p>
+  </article>
+</div>
 
 ## Architecture at a glance
 
@@ -63,10 +117,11 @@ Hybrid flow:
 
 <div className="start-here-links">
   <ul>
+    <li><a href="/docs/installation-quick-start">Installation and Quick Start</a></li>
     <li><a href="/docs/architecture">Architecture</a></li>
     <li><a href="/docs/deployment-options">Deployment Options</a></li>
-    <li><a href="/docs/ai-assistant-ensp-logger">AI Assistant - ENSP Logger System</a></li>
-    <li><a href="/docs/installation-quick-start">Installation &amp; Quick Start</a></li>
-    <li><a href="/docs/training-implementation-guide">Training &amp; Implementation Guide</a></li>
+    <li><a href="/docs/setup-scripts">Setup Scripts</a></li>
+    <li><a href="/docs/ai-assistant-ensp-logger">AI Assistant and ENSP Logger</a></li>
+    <li><a href="/docs/training-implementation-guide">Training and Implementation Guide</a></li>
   </ul>
 </div>

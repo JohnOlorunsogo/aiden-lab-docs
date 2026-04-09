@@ -217,9 +217,15 @@ html.dark .brand-logo--dark {
   font-size: 1.02rem;
 }
 
+.aiden-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
 .academy-badge {
   display: inline-flex;
-  margin-top: 1rem;
   padding: 0.35rem 0.7rem;
   border: 1px solid rgba(36, 171, 148, 0.66);
   color: var(--aiden-teal);
@@ -227,6 +233,12 @@ html.dark .brand-logo--dark {
   font-weight: 600;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
+}
+
+.academy-badge--outline {
+  border-color: rgba(255, 255, 255, 0.34);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .hero-card {
@@ -249,9 +261,57 @@ html.dark .hero-card {
   color: inherit;
 }
 
+.hero-card--mission {
+  margin-top: 0.85rem;
+}
+
+.hero-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.62rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-1px);
+}
+
+.hero-btn--primary {
+  background: var(--aiden-teal);
+  color: #022920;
+  box-shadow: 0 6px 16px rgba(36, 171, 148, 0.34);
+}
+
+.hero-btn--primary:hover {
+  color: #022920;
+}
+
+.hero-btn--ghost {
+  color: var(--aiden-white);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero-btn--ghost:hover {
+  color: var(--aiden-white);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
 .aiden-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
   margin: 1.2rem 0 0;
 }
@@ -407,6 +467,16 @@ html:not([data-theme="dark"]):not(.dark) .academy-badge {
   border-color: rgba(36, 171, 148, 0.7);
 }
 
+html:not([data-theme="dark"]):not(.dark) .academy-badge--outline {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.38);
+  color: #fff;
+}
+
+html:not([data-theme="dark"]):not(.dark) .hero-btn--ghost {
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
 html:not([data-theme="dark"]):not(.dark) .start-here-links a {
   color: #133450;
   border-color: #d5e4ee;
@@ -433,7 +503,7 @@ html:not([data-theme="dark"]):not(.dark) .nextra-nav-container {
 @media (max-width: 900px) {
   .aiden-grid,
   .aiden-doc-sections {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .start-here-links ul {
@@ -451,5 +521,16 @@ html:not([data-theme="dark"]):not(.dark) .nextra-nav-container {
 
   .nextra-body-typesetting-article {
     padding: 1rem 1rem 2.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .aiden-grid,
+  .aiden-doc-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
   }
 }

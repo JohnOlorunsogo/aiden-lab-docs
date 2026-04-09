@@ -1,4 +1,4 @@
-import { useMDXComponents as getThemeComponents } from "nextra-theme-docs";
+import { useMDXComponents as getThemeComponents } from "@nextra/theme-docs";
 
 export function useMDXComponents(components) {
   return {
