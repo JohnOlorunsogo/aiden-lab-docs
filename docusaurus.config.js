@@ -11,7 +11,7 @@ const config = {
     v4: true,
   },
 
-  url: "https://aiden-lab-docs.example.com",
+  url: process.env.URL || "https://aiden-lab-docs.example.com",
   baseUrl: "/",
 
   organizationName: "aiden-lab",
